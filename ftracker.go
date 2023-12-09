@@ -2,6 +2,7 @@ package ftracker
 
 import (
 	"fmt"
+	"math"
 )
 
 // Основные константы, необходимые для расчетов.
@@ -109,7 +110,7 @@ func WalkingSpentCalories(action int, duration, weight, height float64) float64 
 		return 0
 	}
 	dis := meanSpeed(action, duration) * kmhInMsec
-	return ((walkingCaloriesWeightMultiplier*weight + (dis**2/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
+	return ((walkingCaloriesWeightMultiplier*weight + (math.Pow(dis, 2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
 	// return float64(lengthPool) * float64(countPool) / mInKm / duration
 	//  ((0.035 * ВесСпортсменаВКг + (СредняяСкоростьВМетрахВСекунду**2 / РостВМетрах) * 0.029 * ВесСпортсменаВКг) * ВремяТренировкиВЧасах * minInH)
 
@@ -146,7 +147,9 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 // weight float64 — вес пользователя.
 func SwimmingSpentCalories(lenghtPool, countPool int, duration, weight float64) float64 {
 	// ваш код здесь
-
+	if duration == 0 {
+		return 0
+	}
 	return (swimmingMeanSpeed(lenghtPool, countPool, duration) + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
 
 }
