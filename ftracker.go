@@ -3,7 +3,6 @@ package ftracker
 import (
 	"fmt"
 	"math"
-	_ "math"
 )
 
 // Основные константы, необходимые для расчетов.
