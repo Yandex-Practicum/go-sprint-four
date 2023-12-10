@@ -86,8 +86,6 @@ func RunningSpentCalories(action int, weight, duration float64) float64 {
 		return 0
 	}
 	return ((runningCaloriesMeanSpeedMultiplier * meanSpeed(action, duration) * runningCaloriesMeanSpeedShift) * weight / mInKm * duration * minInH)
-	// return float64(lengthPool) * float64(countPool) / mInKm / duration
-	//  ((18 * СредняяСкоростьВКм/ч * 1.79) * ВесСпортсменаВКг / mInKM * ВремяТренировкиВЧасах * minInH)
 }
 
 // Константы для расчета калорий, расходуемых при ходьбе.
@@ -110,10 +108,7 @@ func WalkingSpentCalories(action int, duration, weight, height float64) float64 
 		return 0
 	}
 	dis := meanSpeed(action, duration) * kmhInMsec
-	return ((walkingCaloriesWeightMultiplier*weight + (math.Pow(dis, 2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
-	// return float64(lengthPool) * float64(countPool) / mInKm / duration
-	//  ((0.035 * ВесСпортсменаВКг + (СредняяСкоростьВМетрахВСекунду**2 / РостВМетрах) * 0.029 * ВесСпортсменаВКг) * ВремяТренировкиВЧасах * minInH)
-
+	return (walkingCaloriesWeightMultiplier*weight + (math.Pow(dis, 2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH
 }
 
 // Константы для расчета калорий, расходуемых при плавании.
