@@ -30,6 +30,9 @@ func distance(action int) float64 {
 // action int — количество совершенных действий(число шагов при ходьбе и беге, либо гребков при плавании).
 // duration float64 — длительность тренировки в часах.
 func meanSpeed(action int, duration float64) float64 {
+	if duration == 0 {
+		return 0
+	}
 	distance := distance(action)
 	return distance / duration
 }
