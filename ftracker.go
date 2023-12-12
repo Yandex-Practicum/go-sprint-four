@@ -45,7 +45,7 @@ func meanSpeed(action int, duration float64) float64 {
 // trainingType string — вид тренировки(Бег, Ходьба, Плавание).
 // duration float64 — длительность тренировки в часах.
 func ShowTrainingInfo(action int, trainingType string, duration, weight, height float64, lengthPool, countPool int) string {
-	// ваш код здесь/тут
+	// ваш код здесь
 	switch {
 	case trainingType == "Бег":
 		distance := distance(action)                               // вызовите здесь необходимую функцию
