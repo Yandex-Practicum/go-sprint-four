@@ -127,6 +127,7 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 
 // SwimmingSpentCalories возвращает количество потраченных калорий при плавании.
 //
+//
 // Параметры:
 //
 // lengthPool int — длина бассейна в метрах.
