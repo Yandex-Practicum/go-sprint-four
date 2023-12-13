@@ -47,19 +47,19 @@ func meanSpeed(action int, duration float64) float64 {
 func ShowTrainingInfo(action int, trainingType string, duration, weight, height float64, lengthPool, countPool int) string {
 	switch {
 	case trainingType == "Бег":
-		distance := distance(action)                               // вызовите здесь необходимую функцию
-		speed := meanSpeed(action, duration)                       // вызовите здесь необходимую функцию
-		calories := RunningSpentCalories(action, weight, duration) // вызовите здесь необходимую функцию
+		distance := distance(action)
+		speed := meanSpeed(action, duration)
+		calories := RunningSpentCalories(action, weight, duration)
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	case trainingType == "Ходьба":
-		distance := distance(action)                                       // вызовите здесь необходимую функцию
-		speed := meanSpeed(action, duration)                               // вызовите здесь необходимую функцию
-		calories := WalkingSpentCalories(action, duration, weight, height) // вызовите здесь необходимую функцию
+		distance := distance(action)
+		speed := meanSpeed(action, duration)
+		calories := WalkingSpentCalories(action, duration, weight, height)
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	case trainingType == "Плавание":
-		distance := distance(action)                                               // вызовите здесь необходимую функцию
-		speed := swimmingMeanSpeed(lengthPool, countPool, duration)                // вызовите здесь необходимую функцию
-		calories := SwimmingSpentCalories(lengthPool, countPool, duration, weight) // вызовите здесь необходимую функцию
+		distance := distance(action)
+		speed := swimmingMeanSpeed(lengthPool, countPool, duration)
+		calories := SwimmingSpentCalories(lengthPool, countPool, duration, weight)
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	default:
 		return "неизвестный тип тренировки"
