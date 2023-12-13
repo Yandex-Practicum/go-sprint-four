@@ -1,4 +1,4 @@
-name: autotests
+name: .github/workflows/autotest.yml
 
 on:
   pull_request:
