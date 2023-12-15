@@ -33,8 +33,7 @@ func meanSpeed(action int, duration float64) float64 {
 	if duration == 0 {
 		return 0
 	}
-	distance := distance(action)
-	return distance / duration
+	return distance(action) / duration
 }
 
 // ShowTrainingInfo возвращает строку с информацией о тренировке.
@@ -98,9 +97,9 @@ const (
 // weight float64 — вес пользователя.
 // height float64 — рост пользователя.
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
-	meanSpeedMS := math.Pow((meanSpeed(action, duration) * kmhInMsec), 2)
-	heightInSM := height / cmInM
-	return (walkingCaloriesWeightMultiplier*weight + (meanSpeedMS/heightInSM)*walkingSpeedHeightMultiplier*weight) * duration * minInH
+	meanSpeedMs := math.Pow((meanSpeed(action, duration) * kmhInMsec), 2)
+	heightInSm := height / cmInM
+	return (walkingCaloriesWeightMultiplier*weight + (meanSpeedMs/heightInSm)*walkingSpeedHeightMultiplier*weight) * duration * minInH
 }
 
 // Константы для расчета калорий, расходуемых при плавании.
