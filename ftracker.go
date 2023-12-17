@@ -1,4 +1,4 @@
-package main
+package ftracker
 
 import (
 	"fmt"
@@ -104,7 +104,7 @@ const (
 // height float64 — рост пользователя.
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
 	// ваш код здесь
-	speed := meanSpeed(action, duration)
+	//speed := meanSpeed(action, duration)
 	calories := ((walkingCaloriesWeightMultiplier*weight + (math.Pow((meanSpeed(action, duration))*kmhInMsec, 2)/(height/cmInM))*walkingSpeedHeightMultiplier*weight) * duration * minInH)
 	return calories
 }
@@ -140,7 +140,7 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 // weight float64 — вес пользователя.
 func SwimmingSpentCalories(lenghtPool, countPool int, duration, weight float64) float64 {
 	// ваш код здесь
-	distance := float64(lenghtPool) * float64(countPool) / mInKm
+	//distance := float64(lenghtPool) * float64(countPool) / mInKm
 	speed := swimmingMeanSpeed(lenghtPool, countPool, duration)
 	calories := (swimmingCaloriesMeanSpeedShift * speed) * swimmingCaloriesWeightMultiplier * weight * duration
 	return calories
