@@ -112,7 +112,7 @@ func WalkingSpentCalories(action int, duration, weight, height float64) float64 
 
 // Константы для расчета калорий, расходуемых при плавании.
 const (
-	swimmingLenStep                  = 1.38 // длина одного гребка.
+	//swimmingLenStep                  = 1.38 // длина одного гребка.
 	swimmingCaloriesMeanSpeedShift   = 1.1  // среднее количество сжигаемых колорий при плавании относительно скорости.
 	swimmingCaloriesWeightMultiplier = 2    // множитель веса при плавании.
 )
@@ -139,10 +139,10 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 // countPool int — сколько раз пользователь переплыл бассейн.
 // duration float64 — длительность тренировки в часах.
 // weight float64 — вес пользователя.
-func SwimmingSpentCalories(lenghtPool, countPool int, duration, weight float64) float64 {
+func SwimmingSpentCalories(lengthPool, countPool int, duration, weight float64) float64 {
 	// ваш код здесь
 	if duration == 0 {
 		return 0
 	}
-	return (swimmingMeanSpeed(lenghtPool, countPool, duration) + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
+	return (swimmingMeanSpeed(lengthPool, countPool, duration) + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
 }
