@@ -3,6 +3,7 @@ package ftracker
 import (
 	"fmt"
 	//	"math"
+	// Просто добавил строку для итерации в новой ветке :-) Тупо, но а что делать
 )
 
 // Основные константы, необходимые для расчетов.
@@ -59,7 +60,7 @@ func ShowTrainingInfo(action int, trainingType string, duration, weight, height 
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	case trainingType == "Плавание":
 		distance := distance(action)                                               // вызовите здесь необходимую функцию
-		speed := meanSpeed(action, duration)                                       // вызовите здесь необходимую функцию
+		speed := swimmingMeanSpeed(lengthPool, countPool, duration)                // вызовите здесь необходимую функцию
 		calories := SwimmingSpentCalories(lengthPool, countPool, duration, weight) // вызовите здесь необходимую функцию
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	default:
@@ -104,7 +105,9 @@ func WalkingSpentCalories(action int, duration, weight, height float64) float64 
 	//    ((0.035 * ВесСпортсменаВКг + (СредняяСкоростьВМетрахВСекунду**2 / РостВМетрах)
 	//    * 0.029 * ВесСпортсменаВКг) * ВремяТренировкиВЧасах * minInH)
 	avgSpeed := meanSpeed(action, duration) * kmhInMsec
-	return ((walkingCaloriesWeightMultiplier*weight + ((avgSpeed*avgSpeed)/(height))*walkingSpeedHeightMultiplier) * duration * minInH)
+	heightM := height / 100
+	Cal := ((walkingCaloriesWeightMultiplier*weight + ((avgSpeed*avgSpeed)/heightM)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
+	return Cal
 }
 
 // Константы для расчета калорий, расходуемых при плавании.
