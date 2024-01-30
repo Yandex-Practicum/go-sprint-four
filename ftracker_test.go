@@ -1,6 +1,7 @@
 package ftracker
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -101,6 +102,8 @@ func TestShowTrainingInfo(t *testing.T) {
 
 	unknownTest := "неизвестный тип тренировки"
 
+	zeroTest := "Тип тренировки: %s\nДлительность: 0.00 ч.\nДистанция: 0.00 км.\nСкорость: 0.00 км/ч\nСожгли калорий: 0.00\n"
+
 	tests := []struct {
 		name string
 		args args
@@ -148,17 +151,31 @@ func TestShowTrainingInfo(t *testing.T) {
 			},
 			want: swimmingTest,
 		},
-
 		{
-			name: "unknown test",
+			name: "zero run test",
 			args: args{
-				action:       1000,
+				trainingType: "Бег",
+			},
+			want: fmt.Sprintf(zeroTest, "Бег"),
+		},
+		{
+			name: "zero walking test",
+			args: args{
+				trainingType: "Ходьба",
+			},
+			want: fmt.Sprintf(zeroTest, "Ходьба"),
+		},
+		{
+			name: "zero swimming test",
+			args: args{
+				trainingType: "Плавание",
+			},
+			want: fmt.Sprintf(zeroTest, "Плавание"),
+		},
+		{
+			name: "zero unknown test",
+			args: args{
 				trainingType: "Керлинг",
-				duration:     5,
-				weight:       85,
-				height:       185,
-				lengthPool:   50,
-				countPool:    2,
 			},
 			want: unknownTest,
 		},
