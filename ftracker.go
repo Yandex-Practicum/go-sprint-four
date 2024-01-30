@@ -79,11 +79,10 @@ const (
 // ((18 * СредняяСкоростьВКм/ч * 1.79) * ВесСпортсменаВКг / mInKM
 // * ВремяТренировкиВЧасах * minInH)
 func RunningSpentCalories(action int, weight, duration float64) float64 {
-	if duration == 0 || weight == 0 || action == 0 {
+	if duration == 0 || weight == 0 {
 		return 0
 	}
-	return runningCaloriesMeanSpeedMultiplier * meanSpeed(action, duration) * runningCaloriesMeanSpeedShift *
-		weight / mInKm * duration * minInH
+	return (runningCaloriesMeanSpeedMultiplier*meanSpeed(action, duration) + runningCaloriesMeanSpeedShift) * weight / mInKm * duration * minInH
 }
 
 // Константы для расчета калорий, расходуемых при ходьбе.
