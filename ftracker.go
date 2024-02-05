@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// Основные константы, необходимые для расчетов. TEST
+// Основные константы, необходимые для расчетов. TEST_commit1
 const (
 	lenStep   = 0.65  // средняя длина шага.
 	mInKm     = 1000  // количество метров в километре.
@@ -101,7 +101,7 @@ const (
 // height float64 — рост пользователя.
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
 	// ваш код здесь
-	return ((walkingCaloriesWeightMultiplier*weight + (math.Pow(meanSpeed(action, duration) * kmhInMsec, 2) / height * cmInM )*walkingSpeedHeightMultiplier*weight) * duration * minInH)
+	return ((walkingCaloriesWeightMultiplier*weight + (math.Pow(meanSpeed(action, duration)*kmhInMsec, 2)/height*cmInM)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
 
 }
 
