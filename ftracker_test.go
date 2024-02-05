@@ -1,8 +1,6 @@
 package ftracker
 
-import (
-	"testing"
-)
+import "testing"
 
 func Test_distance(t *testing.T) {
 	type args struct {
