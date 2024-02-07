@@ -148,27 +148,3 @@ func swimmingDistance(lengthPool int, countPool int) float64 {
 	swDistance := float64(lengthPool*countPool) / mInKm
 	return swDistance
 }
-
-func main() {
-	fmt.Println("Привет, я первый отечественный фитнес браслет!")
-	fmt.Println("Тебе придется постараться, чтобы я заработал!")
-	fmt.Println("Мне понадобятся некоторые данные о твоей тренировке!")
-	fmt.Println("Надеюсь, ты запомнил количество гребков, которое сделал...")
-	action := 545
-	duration := 2
-	weight := 78
-	height := 186
-	lengthPool := 25
-	countPool := 100
-	trainingType := "Плавание"
-
-	message := ShowTrainingInfo(action, trainingType, duration, weight, height, lengthPool, countPool)
-	fmt.Println(message)
-
-}
-
-// PS: понимаю, что пользователь не будет сам вводить указанные данные
-// и что они будут передаваться из других частей программы.
-// но хотел сделать так программу, чтобы ее уже на данном этапе можно было запустить в терминале.
-// Но признаюсь, потерпел фиаско. Так в терминале и не запустился
-//
