@@ -52,9 +52,9 @@ func ShowTrainingInfo(action int, trainingType string, duration, weight, height 
 		calories := RunningSpentCalories(action, weight, duration) // вызовите здесь необходимую функцию
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	case trainingType == "Ходьба":
-		distance := countDistance(action)    // вызовите здесь необходимую функцию
-		speed := meanSpeed(action, duration) // вызовите здесь необходимую функцию
-		calories := WalkingSpentCalories(action int, duration float64, weight float64, height float64)  // вызовите здесь необходимую функцию
+		distance := countDistance(action)                                  // вызовите здесь необходимую функцию
+		speed := meanSpeed(action, duration)                               // вызовите здесь необходимую функцию
+		calories := WalkingSpentCalories(action, duration, weight, height) // вызовите здесь необходимую функцию
 		return fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", trainingType, duration, distance, speed, calories)
 	case trainingType == "Плавание":
 		distance := swimmingDistance(lengthPool, countPool)                        // вызовите здесь необходимую функцию
@@ -102,7 +102,7 @@ const (
 // height float64 — рост пользователя.
 func WalkingSpentCalories(action int, duration, weight, height float64) float64 {
 	// ваш код здесь
-	walkCalories := ((walkingCaloriesWeightMultiplier * weight + (((meanSpeed(action, duration)/minInH*mInKm) ** 2) / height) * walkingSpeedHeightMultiplier * weight) * duration * minInH)
+	walkCalories := ((walkingCaloriesWeightMultiplier*weight + (((meanSpeed(action, duration)/minInH*mInKm)**2)/height)*walkingSpeedHeightMultiplier*weight) * duration * minInH)
 	return walkCalories
 }
 
@@ -148,4 +148,5 @@ func swimmingDistance(lengthPool int, countPool int) float64 {
 	swDistance := float64(lengthPool*countPool) / mInKm
 	return swDistance
 }
+
 //
