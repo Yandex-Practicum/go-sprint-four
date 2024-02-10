@@ -117,7 +117,7 @@ func TestShowTrainingInfo(t *testing.T) {
 				height:       185,
 				lengthPool:   50,
 				countPool:    2,
-			}
+			},
 			want: runTest,
 		},
 
@@ -131,7 +131,7 @@ func TestShowTrainingInfo(t *testing.T) {
 				height:       185,
 				lengthPool:   50,
 				countPool:    2,
-			}
+			},
 			want: walkingTest,
 		},
 
@@ -145,7 +145,7 @@ func TestShowTrainingInfo(t *testing.T) {
 				height:       185,
 				lengthPool:   100,
 				countPool:    4,
-			}
+			},
 			want: swimmingTest,
 		},
 
@@ -159,7 +159,7 @@ func TestShowTrainingInfo(t *testing.T) {
 				height:       185,
 				lengthPool:   50,
 				countPool:    2,
-			}
+			},
 			want: unknownTest,
 		},
 	}
