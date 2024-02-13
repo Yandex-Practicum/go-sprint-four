@@ -19,7 +19,8 @@ const (
 //
 // action int — количество совершенных действий (число шагов при ходьбе и беге, либо гребков при плавании).
 func countDistance(action int) float64 {
-	return float64(action) * lenStep / mInKm
+	distance:= float64(action) * lenStep / mInKm
+	return distance
 }
 
 // meanSpeed возвращает значение средней скорости движения во время тренировки.
@@ -32,8 +33,7 @@ func meanSpeed(action int, duration float64) float64 {
 	if duration == 0 {
 		return 0
 	}
-	distance := countDistance(action)
-	return distance / duration
+	return countDistance(action) / duration
 }
 
 // ShowTrainingInfo возвращает строку с информацией о тренировке.
@@ -123,9 +123,11 @@ func swimmingMeanSpeed(lengthPool, countPool int, duration float64) float64 {
 	if duration == 0 {
 		return 0
 	}
-	return float64(lengthPool) * float64(countPool) / mInKm / duration
-}
+	swSpeed:= swimmingDistance(lengthPool int, countPool int) / duration
+	return swSpeed
 
+}
+	
 // SwimmingSpentCalories возвращает количество потраченных калорий при плавании.
 //
 // Параметры:
