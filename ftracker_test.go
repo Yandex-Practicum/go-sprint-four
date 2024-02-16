@@ -170,4 +170,4 @@ func TestShowTrainingInfo(t *testing.T) {
 			}
 		})
 	}
-}
+} ////
