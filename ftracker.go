@@ -90,6 +90,8 @@ const (
 	walkingSpeedHeightMultiplier    = 0.029 // множитель роста.
 )
 
+//MeanWalkingSpeed
+
 func meanWalkingSpeed(action int, duration float64) float64 {
 	if duration == 0 {
 		return 0
