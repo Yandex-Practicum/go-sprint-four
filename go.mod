@@ -1,3 +1,3 @@
-module github.com/Yandex-Practicum/go-first-floor-sprint-four
+module github.com/se-scratch/go-sprint-four
 
-go 1.20
+go 1.22
