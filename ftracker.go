@@ -111,4 +111,4 @@ func SwimmingSpentCalories(lengthPool, countPool int, duration, weight float64) 
 	return (speed + swimmingCaloriesMeanSpeedShift) * swimmingCaloriesWeightMultiplier * weight * duration
 }
 
-//Комментарий, чтобы спровоцировать воркфлоу новым комитом
+//Комментарий, чтобы спровоцировать воркфлоу новым комитом)
